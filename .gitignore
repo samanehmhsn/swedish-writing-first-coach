@@ -1,0 +1,5 @@
+# Private learner data should not be committed
+LEARNING_LOG.md
+private/
+*.personal.md
+.env
