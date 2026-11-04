@@ -54,14 +54,14 @@
  <aside class="sidebar">
   <a class="brand" href="prototype.html"><span class="brand-mark">w.</span><span><strong>Write Your<br>Way.</strong><small>PERSONAL FLUENCY STUDIO</small></span></a>
   <div class="sidegroup"><p class="side-title">YOUR PRACTICE</p><div class="sidelinks"><button class="side-link active" id="nav-write" type="button"><span>✎</span>Write</button><button class="side-link" id="nav-history" type="button"><span>▣</span>My attempts</button><button class="side-link" id="nav-notebook" type="button"><span>▤</span>Notebook</button><a class="side-link" href="prototype.html"><span>↗</span>Original demo</a></div></div>
-  <div class="sidebar-note"><strong>One learner. One useful habit.</strong>Write in Swedish, learn from visible corrections, then try to find the same words again without looking.<br><br><span style="color:#ffdf62">Direct AI feedback when run with your private local server</span></div>
+  <div class="sidebar-note"><strong>One learner. One useful habit.</strong>Write in Swedish, learn from visible corrections, then try to find the same words again without looking.<br><br><span style="color:#ffdf62">Interactive example · no API key or credits</span></div>
  </aside>
  <div class="main">
-  <header class="top"><div class="crumb" id="crumb">YOUR WORKSPACE / WRITING</div><div class="top-note"><i class="dot"></i><span id="connectionState">Checking AI connection…</span></div></header>
+  <header class="top"><div class="crumb" id="crumb">YOUR WORKSPACE / WRITING</div><div class="top-note"><i class="dot"></i><span id="connectionState">Interactive demo · no AI calls</span></div></header>
   <main class="container">
    <div class="eyebrow" id="eyebrow">PERSONAL SWEDISH PRACTICE · V1</div>
    <h1 class="lead-title" id="headline">Find the words.<br><em>Make them yours.</em></h1>
-   <p class="lead-desc" id="intro">Write what matters to you. Review corrections directly in the workspace, save essential words, and revisit them later.</p>
+   <p class="lead-desc" id="intro">Explore how in-text corrections, vocabulary, and repetition work using a prepared Swedish example. Your own drafts are saved in this browser.</p>
    <div class="stats" id="stats"><div class="stat"><b id="statAttempts">0</b> reviewed attempts</div><div class="stat"><b id="statRevisions">0</b> revised attempts</div><div class="stat"><b id="statPhrases">0</b> saved expressions</div></div>
 
    <section id="write-view">
@@ -76,25 +76,24 @@
        <textarea id="draft" class="text-area" spellcheck="false" placeholder="Skriv på svenska här… Use [English words] whenever you get stuck."></textarea>
        <div class="editor-meta"><span id="wordCount">0 words</span><span id="saveStatus">Your draft stays in this browser</span></div>
       </div>
-      <div class="footer"><span class="tiny">Keep the attempt honest. Don't look up every word first.</span><div class="buttons"><button class="btn" id="loadExample">Load fictional example</button><button class="btn primary" id="prepareCoach">Get Swedish corrections →</button></div></div>
+      <div class="footer"><span class="tiny">Keep the attempt honest. Don't look up every word first.</span><div class="buttons"><button class="btn" id="loadExample">Load sample for this situation</button><button class="btn primary" id="prepareCoach">Preview sample corrections →</button></div></div>
      </div>
      <section id="handoff" class="bridge hidden" aria-live="polite">
-      <div class="eyebrow" id="feedbackStatusLabel">CHECKING YOUR WRITING</div>
-      <h3 id="feedbackStatusTitle">Reviewing your Swedish…</h3>
-      <p id="feedbackStatusCopy">Your original text is saved locally. The feedback will appear here when it is ready.</p>
-      <div id="importError" class="import-error hidden" role="alert"></div>
-      <div class="buttons" style="margin-top:12px"><button class="btn" id="closeHandoff">Back to writing</button><a class="btn" href="https://github.com/samanehmhsn/swedish-writing-first-coach/blob/main/local/README.md" target="_blank" rel="noopener noreferrer">Local setup guide ↗</a></div>
+      <div class="eyebrow">VISUAL PROTOTYPE · PREPARED FEEDBACK</div>
+      <h3 id="feedbackStatusTitle">Your own writing is safely saved.</h3>
+      <p id="feedbackStatusCopy">This demo can only display corrections for its prepared sample texts. Load a sample to try the review, vocabulary, and recall features. Your own text will not be sent anywhere.</p>
+      <div class="buttons" style="margin-top:12px"><button class="btn" id="closeHandoff">Close</button></div>
      </section>
     </div>
     <div class="sidecards">
      <div class="tipcard highlight"><div class="small-caps">THE LEARNING METHOD</div><h3>Production before perfection.</h3><p>Your first draft tells us more about your active Swedish than a polished sentence assembled from a dictionary.</p></div>
      <div class="tipcard"><div class="small-caps">YOUR NEXT STEPS</div><h3>Write → Correct → Repeat → Recall</h3><p>We aren't counting lessons completed as success. We're looking for words and structures you can eventually use independently.</p><hr class="tipline"/><ul class="bullets"><li>Write naturally, even imperfectly</li><li>Keep the original draft</li><li>Repeat useful words later</li><li>Retrieve expressions later</li></ul></div>
-     <div class="tipcard"><div class="small-caps">PROTOTYPE NOTE</div><h3>What works today?</h3><p>Drafts, revisions and saved expressions stay in this browser. AI corrections run within this page once a private local server is configured. No user accounts or cloud learning history are connected.</p></div>
+     <div class="tipcard"><div class="small-caps">PROTOTYPE NOTE</div><h3>What can I test?</h3><p>Preview prepared corrections, inspect brief explanations, save words and phrases, revise, and practise recall. Your own drafts are saved in this browser, but this version does not generate new corrections.</p></div>
     </div></div>
    </section>
 
    <section id="review-view" class="hidden">
-    <div class="card"><div class="card-head"><div><div class="eyebrow">02 / YOUR CORRECTIONS</div><h2 id="reviewTitle">Review your writing</h2></div><div class="step">WRITING REVIEW</div></div>
+    <div class="card"><div class="card-head"><div><div class="eyebrow">02 / YOUR CORRECTIONS</div><h2 id="reviewTitle">Review your writing</h2></div><div class="step">SAMPLE CORRECTIONS</div></div>
      <div class="card-body">
       <div class="tabrow" role="tablist" aria-label="Writing comparison"><button class="tab" data-tab="tracked" aria-selected="true">Tracked changes</button><button class="tab" data-tab="original" aria-selected="false">Original</button><button class="tab" data-tab="corrected" aria-selected="false">Corrected preview</button></div>
       <div class="review-text" id="reviewText"></div>
@@ -104,11 +103,11 @@
       <details class="alternatives-disclosure section"><summary>Optional natural alternatives <span class="summary-note">Only if you're curious</span></summary><ul class="small-list" id="alternativesList"></ul></details>
       <div class="quiet-strength"><div class="eyebrow">ONE THING YOU DID WELL</div><p id="strength"></p></div>
       <div class="revise"><div class="eyebrow">03 / PRACTISE AGAIN</div><h2 class="section-title">Write it again from memory.</h2><p class="muted">Return to the same idea without copying the corrections. Keep both attempts so you can see the difference.</p><label class="field-label" for="revision">SECOND ATTEMPT</label><textarea class="text-area" id="revision" placeholder="Skriv om texten med dina egna ord…" spellcheck="false"></textarea><div class="editor-meta"><span id="revisionCount">0 words</span><span>Saved in this browser</span></div><details class="comparison-disclosure section"><summary>Compare first and second attempt</summary><div class="diff-compare"><div class="compare-box"><h4>First attempt</h4><span id="compareOriginal"></span></div><div class="compare-box"><h4>Second attempt</h4><span id="compareRevision"></span></div></div></details></div>
-      <p class="tiny" style="margin-top:21px">AI suggestions are not always accurate. Your original text is preserved.</p>
+      <p class="tiny" style="margin-top:21px">Illustrative, prewritten feedback for the fictional sample. This page does not connect to an AI model. Your original text is preserved.</p>
      </div><div class="footer"><span class="tiny">Original and revision stay separate.</span><div class="buttons"><button class="btn" id="backToEditor">← Back to writing</button><button class="btn yellow" id="useRevision">Review my second attempt →</button></div></div></div>
    </section>
 
-   <section id="history-view" class="hidden"><div class="card"><div class="card-head"><div><div class="eyebrow">YOUR OWN LEARNING RECORD</div><h2>My writing attempts</h2></div><div class="step">BROWSER ONLY</div></div><div class="card-body"><p class="muted">Original texts, feedback, and second attempts stay on this device. Export a backup if you want to keep them.</p><div id="historyList" class="history-list"></div><div class="buttons" style="margin-top:23px"><button class="btn" id="exportProgress">Export my progress (.json)</button></div></div></div></section>
+   <section id="history-view" class="hidden"><div class="card"><div class="card-head"><div><div class="eyebrow">YOUR OWN LEARNING RECORD</div><h2>My writing attempts</h2></div><div class="step">BROWSER ONLY</div></div><div class="card-body"><p class="muted">Sample feedback, your revisions and saved expressions stay on this device. Export a backup if you want to keep them.</p><div id="historyList" class="history-list"></div><div class="buttons" style="margin-top:23px"><button class="btn" id="exportProgress">Export my progress (.json)</button></div></div></div></section>
 
    <section id="notebook-view" class="hidden"><div class="card"><div class="card-head"><div><div class="eyebrow">ACTIVE VOCABULARY, NOT JUST A LIST</div><h2>My notebook</h2></div><div class="step">ENGLISH → SWEDISH</div></div><div class="card-body"><p class="muted">Save phrases from actual feedback. Then try retrieving the Swedish from memory, without seeing the answer first.</p><div id="phraseNotebook"></div><div id="recall" class="recall-area hidden"><div class="eyebrow">ACTIVE RECALL</div><p class="muted" id="recallProgress"></p><div class="recall-en" id="recallEnglish"></div><label class="field-label" for="recallAttempt">YOUR SWEDISH ANSWER</label><textarea class="recall-answer" id="recallAttempt" placeholder="Write what you remember…"></textarea><div class="buttons" style="margin-top:13px"><button class="btn primary" id="reveal">Reveal expression →</button></div><div id="revealBox" class="recall-reveal hidden"><span class="small-caps">MODEL EXPRESSION</span><div class="phrase-sv" id="recallSwedish"></div><p class="muted">Compare the answer yourself. Did you retrieve it without looking?</p><div class="buttons"><button class="btn yellow" id="remembered">I remembered it</button><button class="btn" id="needsPractice">Needs more practice</button></div></div></div></div></div></section>
 
@@ -128,6 +127,64 @@ const prompts={
  everyday:{title:'An everyday request that becomes complicated',prompt:'You ask someone at a café to keep an eye on your bag. They say they have to leave in a minute. Respond naturally and propose another solution.'},
  art:{title:'Explain a choice in your artistic work',prompt:'A curator asks why you chose a particular material or medium. Explain the decision and what it contributes to the viewer’s experience, without making the description unnecessarily complicated.'}
 };
+
+/** Prepared examples are explicitly non-AI demonstration material. */
+const demos={
+ free:{
+  text:'Idag jag träffade en vän och vi pratade om en ny idé. Jag [wanted to explain] varför det är viktig för mig.',
+  feedback:{strength:'You connected an event with an idea and expressed why it matters to you.',
+   edits:[
+    {original:'Idag jag träffade',replacement:'Idag träffade jag',category:'Word order',explanation:'When a time expression comes first, the finite verb comes second in a Swedish main clause.',occurrence:1},
+    {original:'[wanted to explain]',replacement:'ville förklara',category:'Missing vocabulary',explanation:'Ville förklara means wanted to explain and fits this past-tense story.',occurrence:1},
+    {original:'viktig',replacement:'viktigt',category:'Grammar',explanation:'With det, the adjective takes the neuter ending: viktigt.',occurrence:1}
+   ],alternatives:[],vocabulary:[
+    {english:'Wanted to explain',swedish:'Ville förklara',context:'Jag ville förklara varför det är viktigt.'},
+    {english:'Important to me',swedish:'Viktigt för mig',context:'Det är viktigt för mig.'}
+   ],phrases:[{english:'I wanted to explain why…',swedish:'Jag ville förklara varför…'}],recurringCandidates:[]}
+ },
+ interview:{
+  text:'Jag har jobbat med marknadsföring i flera år. Jag också leder projekt och samarbetar med olika team. I mitt senaste arbete [managed] jag kommunikationen för flera marknader.',
+  feedback:{strength:'You described concrete responsibilities and communicated your professional experience clearly.',
+   edits:[
+    {original:'Jag också leder',replacement:'Jag leder också',category:'Word order',explanation:'In a main clause, också normally follows the finite verb: jag leder också.',occurrence:1},
+    {original:'[managed]',replacement:'hanterade',category:'Missing vocabulary',explanation:'Hanterade fits managing communication here. If you owned the entire function, ansvarade för may describe your responsibility more precisely.',occurrence:1}
+   ],alternatives:[{original:'I mitt senaste arbete',suggestion:'I min senaste roll',note:'A common professional way to refer to your previous position.'}],
+   vocabulary:[{english:'Managed / handled',swedish:'Hanterade',context:'Jag hanterade kommunikationen.'},{english:'Was responsible for',swedish:'Ansvarade för',context:'Jag ansvarade för innehållet.'}],
+   phrases:[{english:'In my previous role, I…',swedish:'I min senaste roll…'},{english:'One of my responsibilities was to…',swedish:'Ett av mina ansvarsområden var att…'}],recurringCandidates:[]}
+ },
+ workplace:{
+  text:'Jag tror att vi missa viktig information i briefen. Vi vet inte vem ska vara målgruppen. Jag [suggest] att vi gör en kort lista med frågor innan kampanjen startar.',
+  feedback:{strength:'You identified a problem in the brief and proposed a clear next step before launching.',
+   edits:[
+    {original:'missa',replacement:'missar',category:'Grammar',explanation:'Use the present tense missar for something the team is missing now.',occurrence:1},
+    {original:'vem ska vara målgruppen',replacement:'vem som ska vara målgruppen',category:'Word order',explanation:'This is an indirect question after vi vet inte, so Swedish uses vem som ska vara rather than the direct-question order.',occurrence:1},
+    {original:'[suggest]',replacement:'föreslår',category:'Missing vocabulary',explanation:'Jag föreslår att… means I suggest that… and is natural workplace Swedish.',occurrence:1}
+   ],alternatives:[{original:'viktig information',suggestion:'avgörande information',note:'A slightly stronger alternative when the missing detail affects whether the team can launch.'}],
+   vocabulary:[{english:'To suggest',swedish:'Att föreslå',context:'Jag föreslår att vi ställer frågor först.'},{english:'Target audience',swedish:'Målgrupp',context:'Vem är vår viktigaste målgrupp?'},{english:'To clarify',swedish:'Att förtydliga',context:'Vi behöver förtydliga briefen.'}],
+   phrases:[{english:'I suggest that we…',swedish:'Jag föreslår att vi…'},{english:'We need to clarify…',swedish:'Vi behöver förtydliga…'}],recurringCandidates:[]}
+ },
+ everyday:{
+  text:'Hej! Kan du [watch] min väska lite? Jag kommer tillbaka snart. Jag ska bara gå till toalett.',
+  feedback:{strength:'Your request is understandable and appropriately friendly for a café situation.',
+   edits:[
+    {original:'[watch]',replacement:'hålla ett öga på',category:'Missing vocabulary',explanation:'Hålla ett öga på means keep an eye on, a natural expression for watching belongings.',occurrence:1},
+    {original:'till toalett',replacement:'till toaletten',category:'Grammar',explanation:'The definite form toaletten is normally used here.',occurrence:1}
+   ],alternatives:[{original:'Jag kommer tillbaka snart.',suggestion:'Jag är strax tillbaka.',note:'A common, casual way to say you will be right back.'}],
+   vocabulary:[{english:'Keep an eye on',swedish:'Hålla ett öga på',context:'Kan du hålla ett öga på min väska?'},{english:'I will be right back',swedish:'Jag är strax tillbaka',context:'Jag är strax tillbaka.'}],
+   phrases:[{english:'Could you keep an eye on my bag?',swedish:'Skulle du kunna hålla ett öga på min väska?'}],recurringCandidates:[]}
+ },
+ art:{
+  text:'Min praktik handlar om minnen och platser. Jag också arbetar med ljud och text. Jag vill att besökaren kan [experience] verket i sin egen takt.',
+  feedback:{strength:'You introduced your artistic subject and described how the visitor should encounter the work.',
+   edits:[
+    {original:'Jag också arbetar',replacement:'Jag arbetar också',category:'Word order',explanation:'In a Swedish main clause, the finite verb comes before också in this structure.',occurrence:1},
+    {original:'besökaren kan',replacement:'besökaren ska kunna',category:'Grammar',explanation:'After jag vill att…, ska kunna expresses the intended possibility for the visitor.',occurrence:1},
+    {original:'[experience]',replacement:'uppleva',category:'Missing vocabulary',explanation:'Uppleva means to experience, appropriate when discussing the viewer’s encounter with the work.',occurrence:1}
+   ],alternatives:[{original:'Min praktik handlar om',suggestion:'Min praktik undersöker',note:'An optional more active verb when describing artistic research.'}],
+   vocabulary:[{english:'To experience',swedish:'Att uppleva',context:'Besökaren ska kunna uppleva verket.'},{english:'In their own time',swedish:'I sin egen takt',context:'Besökaren får lyssna i sin egen takt.'}],
+   phrases:[{english:'My practice explores…',swedish:'Min praktik undersöker…'},{english:'I want the visitor to be able to…',swedish:'Jag vill att besökaren ska kunna…'}],recurringCandidates:[]}
+ }
+};
 function defaults(){return {draft:'',context:'free',sessions:[],notebook:[]}}
 function load(){try{const raw=JSON.parse(localStorage.getItem(KEY)||'{}');return {...defaults(),...raw,sessions:Array.isArray(raw.sessions)?raw.sessions:[],notebook:Array.isArray(raw.notebook)?raw.notebook:[]}}catch{return defaults()}}
 const state=load();let activeId=null,tab='tracked',recallIndex=0,selectedEdit=-1;
@@ -135,7 +192,7 @@ function save(){try{localStorage.setItem(KEY,JSON.stringify(state));return true}
 function toast(message){const node=$('notification');node.textContent=message;node.classList.add('show');clearTimeout(window.__noticeTimer);window.__noticeTimer=setTimeout(()=>node.classList.remove('show'),3500)}
 function wordCount(s){return s.trim()?s.trim().split(/\s+/).length:0}
 function updateStats(){$('statAttempts').textContent=state.sessions.length;$('statRevisions').textContent=state.sessions.filter(x=>(x.revision||'').trim()).length;$('statPhrases').textContent=state.notebook.length}
-function nav(view){['write','review','history','notebook'].forEach(x=>$(x+'-view').classList.toggle('hidden',x!==view));['write','history','notebook'].forEach(x=>{const el=$('nav-'+x);if(el)el.classList.toggle('active',x===view)});$('stats').classList.toggle('hidden',view==='review');const data={write:['YOUR WORKSPACE / WRITING','PERSONAL SWEDISH PRACTICE · V1','Find the words.<br><em>Make them yours.</em>','Write what matters to you, see precise corrections right here, and revisit important words later.'],review:['YOUR WORKSPACE / FEEDBACK','YOUR ORIGINAL WORDS, YOUR NEXT ATTEMPT','See what changed.<br><em>Learn why.</em>','Understand what needed correction, then try to produce the language independently.'],history:['YOUR WORKSPACE / HISTORY','PERSONAL PRACTICE HISTORY','Every attempt<br><em>counts.</em>','Compare what you wrote, what you learned, and how you expressed it the second time.'],notebook:['YOUR WORKSPACE / NOTEBOOK','FROM PASSIVE TO ACTIVE VOCABULARY','Find the words<br><em>again.</em>','Remembering an expression later is the real test, not saving it to a list.']}[view];$('crumb').textContent=data[0];$('eyebrow').textContent=data[1];$('headline').innerHTML=data[2];$('intro').textContent=data[3];updateStats();window.scrollTo({top:0,behavior:'smooth'})}
+function nav(view){['write','review','history','notebook'].forEach(x=>$(x+'-view').classList.toggle('hidden',x!==view));['write','history','notebook'].forEach(x=>{const el=$('nav-'+x);if(el)el.classList.toggle('active',x===view)});$('stats').classList.toggle('hidden',view==='review');const data={write:['YOUR WORKSPACE / WRITING','PERSONAL SWEDISH PRACTICE · V1','Find the words.<br><em>Make them yours.</em>','Try a prepared writing example, inspect corrections in place, and recall the words later. You can also save your own drafts for future development.'],review:['YOUR WORKSPACE / FEEDBACK','YOUR ORIGINAL WORDS, YOUR NEXT ATTEMPT','See what changed.<br><em>Learn why.</em>','Explore the corrections, save useful vocabulary, then practise retrieving it later.'],history:['YOUR WORKSPACE / HISTORY','PERSONAL PRACTICE HISTORY','Every attempt<br><em>counts.</em>','Compare what you wrote, what you learned, and how you expressed it the second time.'],notebook:['YOUR WORKSPACE / NOTEBOOK','FROM PASSIVE TO ACTIVE VOCABULARY','Find the words<br><em>again.</em>','Remembering an expression later is the real test, not saving it to a list.']}[view];$('crumb').textContent=data[0];$('eyebrow').textContent=data[1];$('headline').innerHTML=data[2];$('intro').textContent=data[3];updateStats();window.scrollTo({top:0,behavior:'smooth'})}
 function renderPrompt(){$('writingTask').innerHTML='<b>'+esc(prompts[state.context].title)+'</b>'+esc(prompts[state.context].prompt);$('context').value=state.context}
 function syncDraft(){$('draft').value=state.draft;$('wordCount').textContent=wordCount(state.draft)+' words';$('draftStatus').textContent=state.draft.trim()?'DRAFT SAVED':'NOT STARTED';}
 function parseResponse(raw,text){
@@ -189,7 +246,7 @@ function drawDiff(){
 }
 function showExplanation(n){const s=getActive(),e=s?.feedback.edits[n];if(!e)return;const box=$('explanation');if(selectedEdit===n&&!box.classList.contains('hidden')){box.classList.add('hidden');selectedEdit=-1;}else{selectedEdit=n;box.classList.remove('hidden');$('explainCategory').textContent=String(e.category).toUpperCase();$('explainText').textContent=e.explanation;}$('review-view').querySelectorAll('[data-edit]').forEach(b=>b.classList.toggle('selected',+b.dataset.edit===selectedEdit))}
 function renderRevision(){const s=getActive();if(!s)return;$('revisionCount').textContent=wordCount(s.revision||'')+' words';$('compareRevision').textContent=s.revision||'No second attempt yet.';updateStats()}
-function showHistory(){nav('history');const list=state.sessions;$('historyList').innerHTML=list.length?list.map(s=>'<article class="history-item"><div class="tiny">'+esc(new Date(s.createdAt).toLocaleDateString())+' · '+esc(s.title)+'</div><h3>'+esc(prompts[s.context]?.title||'Own writing')+'</h3><p>'+esc(s.original.slice(0,215))+(s.original.length>215?'…':'')+'</p><div class="history-buttons"><button class="btn primary" data-open="'+esc(s.id)+'">Open feedback →</button><button class="btn" data-delete="'+esc(s.id)+'">Delete</button></div></article>').join(''):'<p class="muted">No reviewed attempts yet. Write some Swedish and get feedback to save your first attempt here.</p>';
+function showHistory(){nav('history');const list=state.sessions;$('historyList').innerHTML=list.length?list.map(s=>'<article class="history-item"><div class="tiny">'+esc(new Date(s.createdAt).toLocaleDateString())+' · '+esc(s.title)+'</div><h3>'+esc(prompts[s.context]?.title||'Own writing')+'</h3><p>'+esc(s.original.slice(0,215))+(s.original.length>215?'…':'')+'</p><div class="history-buttons"><button class="btn primary" data-open="'+esc(s.id)+'">Open feedback →</button><button class="btn" data-delete="'+esc(s.id)+'">Delete</button></div></article>').join(''):'<p class="muted">No sample attempts yet. Load an example, preview its corrections, and save the review here.</p>';
  $('historyList').querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>{activeId=b.dataset.open;renderReview()}));
  $('historyList').querySelectorAll('[data-delete]').forEach(b=>b.addEventListener('click',()=>{if(!confirm('Delete this attempt and its corrections from this browser?'))return;state.sessions=state.sessions.filter(s=>s.id!==b.dataset.delete);save();showHistory()}));
 }
@@ -198,39 +255,23 @@ function renderRecall(){const n=state.notebook.length;$('recall').classList.togg
 function recordRecall(ok){const p=state.notebook[recallIndex];if(!p)return;p.practiced=(p.practiced||0)+1;if(ok)p.remembered=(p.remembered||0)+1;p.lastReview=new Date().toISOString();save();recallIndex=(recallIndex+1)%state.notebook.length;showNotebook();toast(ok?'Saved as remembered. Try it in a real sentence later.':'Marked for more practice. Try again soon.')}
 $('nav-write').addEventListener('click',()=>nav('write'));$('nav-history').addEventListener('click',showHistory);$('nav-notebook').addEventListener('click',showNotebook);
 $('context').addEventListener('change',e=>{state.context=e.target.value;save();renderPrompt()});$('draft').addEventListener('input',e=>{state.draft=e.target.value;save();syncDraft()});
-$('loadExample').addEventListener('click',()=>{if(state.draft.trim()&&!confirm('Replace your unsent draft with a fictional example?'))return;state.draft='Jag också jobbar med min egna idé. I mitt senaste projekt [managed] jag innehåll för flera marknader.';state.context='interview';save();syncDraft();renderPrompt();toast('Loaded a fictional example. Use Get Swedish corrections when your local AI server is ready.')});
-async function requestFeedback(){
- if(!state.draft.trim()){toast('Write a few Swedish sentences first.');$('draft').focus();return;}
- const text=state.draft,context=state.context;
- const button=$('prepareCoach'),box=$('handoff');
- button.disabled=true;button.textContent='Checking your Swedish…';
- box.classList.remove('hidden');$('importError').classList.add('hidden');
- $('feedbackStatusTitle').textContent='Checking your Swedish…';
- $('feedbackStatusCopy').textContent='Your original draft is preserved while the coach reviews your text.';
- try{
-  if(location.hostname.endsWith('github.io'))throw Error('This is the visual GitHub Pages preview. To receive AI feedback directly inside the app, run the included private local server. See the setup guide in the project repository.');
-  const res=await fetch('/api/feedback',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text,context,title:prompts[context].title,scenario:prompts[context].prompt})});
-  const payload=await res.json().catch(()=>null);
-  if(!res.ok)throw Error(payload?.error||'The AI service is unavailable. Your draft has been preserved.');
-  if(!payload||!payload.feedback)throw Error('The service returned no usable feedback. Your text is still saved.');
-  const feedback=parseResponse(JSON.stringify(payload.feedback),text);
-  const id=Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,7);
-  const session={id,createdAt:new Date().toISOString(),context,title:prompts[context].title,original:text,feedback,revision:'',parentId:activeId||null};
-  state.sessions.unshift(session);state.sessions=state.sessions.slice(0,50);save();activeId=id;
-  box.classList.add('hidden');renderReview();
-  toast('Feedback ready. Your first attempt is saved.');
- }catch(e){
-  $('feedbackStatusTitle').textContent='Feedback is unavailable';
-  $('feedbackStatusCopy').textContent='Your writing is still saved. You can try again without losing it.';
-  $('importError').classList.remove('hidden');
-  $('importError').textContent=e.message;
- }finally{button.disabled=false;button.textContent='Get Swedish corrections →';}
-}
-async function updateAiStatus(){
- const el=$('connectionState');
- if(location.hostname.endsWith('github.io')){el.textContent='Design preview · AI requires local setup';return;}
- try{const r=await fetch('/api/status',{cache:'no-store'});const d=await r.json();el.textContent=d.ready?'AI coach connected':'AI server running · key not configured';}
- catch{el.textContent='AI offline · run the local app';}
+$('loadExample').addEventListener('click',()=>{if(state.draft.trim()&&state.draft!==demos[state.context].text&&!confirm('Replace your saved draft with the prepared example?'))return;state.draft=demos[state.context].text;save();syncDraft();renderPrompt();$('handoff').classList.add('hidden');toast('Example loaded. Select Preview sample corrections to try the review screen.')});
+function requestFeedback(){
+ const context=state.context,example=demos[context],text=state.draft;
+ if(!text.trim()){toast('Load a sample to preview its corrections, or write your own draft to save it.');return;}
+ if(text!==example.text){
+  $('handoff').classList.remove('hidden');
+  $('feedbackStatusTitle').textContent='Your writing is saved.';
+  $('feedbackStatusCopy').textContent='This no-cost prototype only knows the prepared sample corrections. To test the correction interface, load a sample for this situation. Your own Swedish text has not been sent anywhere.';
+  $('handoff').scrollIntoView({behavior:'smooth',block:'nearest'});
+  return;
+ }
+ const feedback=parseResponse(JSON.stringify(example.feedback),text);
+ const id=Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,7);
+ const session={id,createdAt:new Date().toISOString(),context,title:prompts[context].title+' · example',original:text,feedback,revision:'',source:'prepared demo'};
+ state.sessions.unshift(session);state.sessions=state.sessions.slice(0,50);save();activeId=id;
+ $('handoff').classList.add('hidden');renderReview();
+ toast('Sample corrections ready. Try saving a word and revisiting it in your notebook.');
 }
 $('prepareCoach').addEventListener('click',requestFeedback);
 $('closeHandoff').addEventListener('click',()=>{$('handoff').classList.add('hidden')});
@@ -241,7 +282,7 @@ $('backToEditor').addEventListener('click',()=>nav('write'));
 $('useRevision').addEventListener('click',()=>{const s=getActive();if(!s||!s.revision?.trim()){toast('Write a second attempt before continuing.');return}state.draft=s.revision;state.context=s.context;save();syncDraft();renderPrompt();nav('write');toast('Your revision is now an editable draft. The original attempt is saved in My attempts.')});
 $('reveal').addEventListener('click',()=>{$('revealBox').classList.remove('hidden');$('reveal').disabled=true});$('remembered').addEventListener('click',()=>recordRecall(true));$('needsPractice').addEventListener('click',()=>recordRecall(false));
 $('exportProgress').addEventListener('click',()=>{const data=new Blob([JSON.stringify({exportedAt:new Date().toISOString(),version:1,...state},null,2)],{type:'application/json'});const url=URL.createObjectURL(data);const a=document.createElement('a');a.href=url;a.download='write-your-way-my-practice.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)});
-renderPrompt();syncDraft();updateStats();nav('write');updateAiStatus();
+renderPrompt();syncDraft();updateStats();nav('write');
 })();
 </script>
 </body></html>
