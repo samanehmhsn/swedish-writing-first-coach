@@ -83,7 +83,7 @@
       <h3 id="feedbackStatusTitle">Reviewing your Swedish…</h3>
       <p id="feedbackStatusCopy">Your original text is saved locally. The feedback will appear here when it is ready.</p>
       <div id="importError" class="import-error hidden" role="alert"></div>
-      <div class="buttons" style="margin-top:12px"><button class="btn" id="closeHandoff">Back to writing</button></div>
+      <div class="buttons" style="margin-top:12px"><button class="btn" id="closeHandoff">Back to writing</button><a class="btn" href="https://github.com/samanehmhsn/swedish-writing-first-coach/blob/main/local/README.md" target="_blank" rel="noopener noreferrer">Local setup guide ↗</a></div>
      </section>
     </div>
     <div class="sidecards">
@@ -139,19 +139,19 @@ function nav(view){['write','review','history','notebook'].forEach(x=>$(x+'-view
 function renderPrompt(){$('writingTask').innerHTML='<b>'+esc(prompts[state.context].title)+'</b>'+esc(prompts[state.context].prompt);$('context').value=state.context}
 function syncDraft(){$('draft').value=state.draft;$('wordCount').textContent=wordCount(state.draft)+' words';$('draftStatus').textContent=state.draft.trim()?'DRAFT SAVED':'NOT STARTED';}
 function parseResponse(raw,text){
- let v=raw.trim();if(v.startsWith('```'))v=v.replace(/^```(?:json)?\s*/i,'').replace(/\s*```\s*$/,'');if(!v.startsWith('{')){const a=v.indexOf('{'),b=v.lastIndexOf('}');if(a<0||b<=a)throw Error('No JSON object found. Ask ChatGPT to return only valid JSON.');v=v.slice(a,b+1)}
- let doc;try{doc=JSON.parse(v)}catch{throw Error('The response is not valid JSON. Ask ChatGPT to correct its JSON format and paste it again.')}
+ let v=raw.trim();if(v.startsWith('```'))v=v.replace(/^```(?:json)?\s*/i,'').replace(/\s*```\s*$/,'');if(!v.startsWith('{')){const a=v.indexOf('{'),b=v.lastIndexOf('}');if(a<0||b<=a)throw Error('No JSON object found. The AI service returned an unusable response.');v=v.slice(a,b+1)}
+ let doc;try{doc=JSON.parse(v)}catch{throw Error('The response is not valid JSON. The AI service returned invalid JSON.')}
  if(!doc||!Array.isArray(doc.edits)||doc.edits.length>60)throw Error('The response needs an edits array with up to 60 corrections.');
  const result=[];
  for(let i=0;i<doc.edits.length;i++){
   const e=doc.edits[i];if(!e||typeof e.original!=='string'||typeof e.replacement!=='string'||!e.original||e.original.length>1500||e.replacement.length>1500)throw Error('Correction '+(i+1)+' has invalid original or replacement text.');
   if(e.original===e.replacement)continue;
   const spots=[];let at=text.indexOf(e.original);while(at>=0){spots.push(at);at=text.indexOf(e.original,at+e.original.length)}
-  if(!spots.length)throw Error('Could not find “'+e.original.slice(0,65)+'” in the exact original text. Ask ChatGPT to quote the original literally.');
-  if(spots.length>1&&!Number.isInteger(e.occurrence))throw Error('“'+e.original.slice(0,65)+'” occurs more than once. Ask ChatGPT to supply the occurrence number.');
+  if(!spots.length)throw Error('Could not find “'+e.original.slice(0,65)+'” in the exact original text. The AI response must match the original text exactly.');
+  if(spots.length>1&&!Number.isInteger(e.occurrence))throw Error('“'+e.original.slice(0,65)+'” occurs more than once. The AI response needs a precise occurrence number.');
   const n=e.occurrence??1;if(!Number.isInteger(n)||n<1||n>spots.length)throw Error('Correction '+(i+1)+' has an invalid occurrence number.');
   const start=spots[n-1],end=start+e.original.length;
-  if(result.some(x=>start<x.end&&end>x.start))throw Error('Two suggested corrections overlap. Ask ChatGPT for non-overlapping edits.');
+  if(result.some(x=>start<x.end&&end>x.start))throw Error('Two suggested corrections overlap. The AI response contains overlapping edits.');
   result.push({start,end,original:e.original,replacement:e.replacement,category:String(e.category||'Grammar'),explanation:String(e.explanation||'Review this change.')});
  }
  result.sort((a,b)=>a.start-b.start);
@@ -198,7 +198,7 @@ function renderRecall(){const n=state.notebook.length;$('recall').classList.togg
 function recordRecall(ok){const p=state.notebook[recallIndex];if(!p)return;p.practiced=(p.practiced||0)+1;if(ok)p.remembered=(p.remembered||0)+1;p.lastReview=new Date().toISOString();save();recallIndex=(recallIndex+1)%state.notebook.length;showNotebook();toast(ok?'Saved as remembered. Try it in a real sentence later.':'Marked for more practice. Try again soon.')}
 $('nav-write').addEventListener('click',()=>nav('write'));$('nav-history').addEventListener('click',showHistory);$('nav-notebook').addEventListener('click',showNotebook);
 $('context').addEventListener('change',e=>{state.context=e.target.value;save();renderPrompt()});$('draft').addEventListener('input',e=>{state.draft=e.target.value;save();syncDraft()});
-$('loadExample').addEventListener('click',()=>{if(state.draft.trim()&&!confirm('Replace your unsent draft with a fictional example?'))return;state.draft='Jag också jobbar med min egna idé. I mitt senaste projekt [managed] jag innehåll för flera marknader.';state.context='interview';save();syncDraft();renderPrompt();toast('Loaded a fictional example. Edit it or use it to test the handoff.')});
+$('loadExample').addEventListener('click',()=>{if(state.draft.trim()&&!confirm('Replace your unsent draft with a fictional example?'))return;state.draft='Jag också jobbar med min egna idé. I mitt senaste projekt [managed] jag innehåll för flera marknader.';state.context='interview';save();syncDraft();renderPrompt();toast('Loaded a fictional example. Use Get Swedish corrections when your local AI server is ready.')});
 async function requestFeedback(){
  if(!state.draft.trim()){toast('Write a few Swedish sentences first.');$('draft').focus();return;}
  const text=state.draft,context=state.context;
